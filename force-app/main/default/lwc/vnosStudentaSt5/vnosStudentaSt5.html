@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Create student record Stopnja 5">
+        <lightning-record-edit-form
+            object-api-name="student__c"
+            onsubmit={handleSubmit}
+        >
+            <lightning-input label="Ime" name="student_ime__c" data-id="StudentIme" onchange={handleImeChange} type="text" required></lightning-input>
+            <lightning-input label="Priimek" name="student_priimek__c" data-id="StudentPriimek" onchange={handlePriimekChange} type="text" required></lightning-input>
+            <lightning-input label="Datum rojstva" name="datum_rojstva__c" data-id="DatumRojstva" type="date" onchange={handleDatumRojstvaChange} required></lightning-input>
+            <lightning-input label="EMSO" name="emso__c" data-id="EMSO" onchange={handleEmsoChange} type="text" required onblur={validateEMSO}></lightning-input>
+            <lightning-input label="Naslov" name="naslov__c" data-id="Naslov" onchange={handleNaslovChange} type="text" required></lightning-input>
+            <lightning-input label="Telefon" name="telefon__c" data-id="Telefon" onchange={handleTelefonChange} type="tel" required></lightning-input>
+            <lightning-input label="E-mail" name="email__c" data-id="Email" onchange={handleEmailChange} type="email" required></lightning-input>
+            <lightning-input-field field-name="vrsta_studija__c" data-id="VrstaStudijaPickList" onchange={showPlacnik}></lightning-input-field>
+            <template if:true={visiblePlacnik}>
+                <lightning-input label="Placnik" name="placnik__c" onchange={handlePlacnikChange} type="checkbox"></lightning-input>
+            </template>
+            <lightning-button
+                type="submit"
+                name="submit"
+                label="Create Student Stopnja 5"
+            >
+            </lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
+
+
+

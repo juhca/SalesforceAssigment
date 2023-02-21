@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Create student record">
+        <lightning-record-edit-form
+            object-api-name="student__c"
+            onsuccess={successHandler}
+            onerror={errorHandler}
+        >
+            <lightning-input-field field-name="student_ime__c"></lightning-input-field>
+            <lightning-input-field field-name="student_priimek__c"></lightning-input-field>
+            <lightning-input-field field-name="datum_rojstva__c"></lightning-input-field>
+            <lightning-input-field field-name="emso__c"></lightning-input-field>
+            <lightning-input-field field-name="naslov__c"></lightning-input-field>
+            <lightning-input-field field-name="telefon__c"></lightning-input-field>
+            <lightning-input-field field-name="email__c"></lightning-input-field>
+            <lightning-input-field field-name="vrsta_studija__c" data-id="VrstaStudijaPickList" onchange={showPlacnik}></lightning-input-field>
+            <template if:true={visiblePlacnik}>
+                <lightning-input-field field-name="placnik__c"></lightning-input-field>
+            </template>
+            <lightning-button
+                type="submit"
+                name="submit"
+                label="Create Student"
+            >
+            </lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
+
+
+

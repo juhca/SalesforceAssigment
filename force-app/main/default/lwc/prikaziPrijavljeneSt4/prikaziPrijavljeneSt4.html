@@ -1,0 +1,35 @@
+<template>
+    <lightning-combobox
+        name="Predmeti"
+        label="Izberi predmet"
+        placeholder="-- predmet --"
+        value={predmetiValue}
+        onchange={handlePredmetChange}
+        options={predmetiOptions}
+        required
+    >
+    </lightning-combobox>
+    <lightning-combobox
+        name="Izpitni rok"
+        label="Izberi izpitni rok"
+        placeholder="-- izpitni rok --"
+        value={izpitniRokiValue}
+        onchange={handleizpitniRokiChange}
+        options={izpitniRokiOptions}
+        required
+        style="margin-bottom: 15px;"
+    >
+    </lightning-combobox>
+    <template if:true = {izpitniRokiChosenValue}>
+        <div style="height: auto;">
+            <lightning-datatable
+                key-field="ID"
+                columns={prijavaColumns}
+                data={prijavaItems}
+                show-row-number-column="true"
+                onrowaction={prijavaAction}
+            >
+            </lightning-datatable>
+        </div>
+    </template>
+</template>
